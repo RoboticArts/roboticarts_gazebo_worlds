@@ -1,0 +1,92 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <model name="rai_floor_house">
+    <static>true</static>
+
+    <link name="link">
+
+      <collision name="collision">
+        <geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>100 100</size>
+          </plane>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>100</mu>
+              <mu2>50</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+
+
+      <visual name="visual">
+
+       <pose> 2.34984 -1.8866 0 0 -0 0 </pose>
+       <cast_shadows>false</cast_shadows>
+       <geometry>
+		<plane>
+		    <normal>0 0 1</normal>
+		    <size>7.41745 11.788</size>
+		</plane>
+        </geometry>
+
+        <material> 
+          <script>
+            <uri>model://rai_floor_house/materials/scripts/repeated.material</uri>
+            <name>RepeatedTexture</name>
+          </script>
+        </material>
+
+      </visual>
+
+      <visual name="visual_2">
+
+       <pose>-2.34984 1.8866 0 0 -0 0</pose>
+
+       <cast_shadows>false</cast_shadows>
+       <geometry>
+		<plane>
+		    <normal>0 0 1</normal>
+		    <size>1.98601 4.16918</size>
+		</plane>
+        </geometry>
+        <material> 
+          <script>
+            <uri>model://rai_floor_house/materials/scripts/repeated_2.material</uri>
+            <name>RepeatedTexture_2</name>
+          </script>
+        </material>
+
+      </visual>
+
+      <visual name="visual_3">
+
+       <pose>0 0 0 0 0 0</pose>
+
+       <cast_shadows>false</cast_shadows>
+       <geometry>
+		<plane>
+		    <normal>0 0 1</normal>
+		    <size>100 100</size>
+		</plane>
+        </geometry>
+
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+        </material>
+
+        <transparency>1.0</transparency>
+
+
+      </visual>
+
+    </link>
+  </model>
+</sdf>

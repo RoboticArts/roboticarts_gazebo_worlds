@@ -1,0 +1,44 @@
+<?xml version='1.0'?>
+<sdf version='1.6'>
+  <model name='rai_kitchen_table'>
+    <link name='link_0'>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+      <visual name='visual'>
+        <pose frame=''>0 0.25 0.4 1.57 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://rai_kitchen_table/meshes/rai_kitchen_table.STL</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+          <ambient>0.8 0.63 0.44 1</ambient>
+          <diffuse>0.8 0.63 0.44 1</diffuse>
+          <specular>0.01 0.01 0.01 1</specular>
+          <emissive>0 0 0 1</emissive>
+          <shader type='vertex'>
+            <normal_map>__default__</normal_map>
+          </shader>
+        </material>
+        <cast_shadows>1</cast_shadows>
+        <transparency>0</transparency>
+      </visual>
+      <collision name='collision'>
+        <pose frame=''>-0.82 -0 0.46 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>1.81 0.51 0.9</size>
+          </box>
+        </geometry>
+
+      </collision>
+    </link>
+    <static>1</static>
+    <allow_auto_disable>1</allow_auto_disable>
+  </model>
+</sdf>

@@ -1,0 +1,16 @@
+material RepeatedTexture_2
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        
+        texture ../textures/floor_texture.png
+        scale 0.75 0.75
+      }
+    }
+  }
+}
+
