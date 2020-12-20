@@ -2972,8 +2972,8 @@
     <gui fullscreen='0'>
       <camera name='user_camera'>
         <pose frame=''>10.1143 1.51162 13.3837 0 0.789516 2.97746</pose>
-        <view_controller>ortho</view_controller>
-        <projection_type>orthographic</projection_type>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
       </camera>
     </gui>
     <model name='rai_roboticarts_name'>
