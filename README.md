@@ -4,54 +4,55 @@ This repository contains a database of models and worlds for Gazebo created by R
 
 The vast majority of CAD files have been obtained from https://grabcad.com . However all of them were modified with Solidworks to optimize them. Then textures, colors and collisions were added in Gazebo. Finally, the models were created.
 
-Tested on Gazebo 7.0.0
+Tested on Gazebo 7.0.0 and Gazebo 9.0.0
 
 <img src="utils/images/atom2_house_bedroom.jpg" width="60%">
 
-### 1. Requisites
+## 1. Requisites
 
-- Gazebo 7 or higher
-- ROS Kinetic or higher
+- Gazebo 7, Gazebo 9 or higher
+- ROS Kinetic, ROS Melodic or higher
 
-### 2.  Installation
+## 2.  Installation
 
-Clone the database into your local machine, for example in your ROS workspace:
+Clone the database into your local machine:
 
 ```
-$ cd ~/catkin_ws/src
 $ git clone https://github.com/RoboticArts/roboticarts_gazebo_worlds
 ```
 
-Copy the models to the Gazebo model directory. By default it is a hidden folder in ```/home/username/.gazebo```
+### 2.1 Gazebo models
+
+Go to ```roboticarts_gazebo_worlds``` folder and copy the models into Gazebo model directory. By default, the Gazebo models are saved inside a hidden folder in ```/home/username/.gazebo```
 
 ```
-$ cd ~/catkin_ws/src/roboticarts_gazebo_worlds
+$ cd roboticarts_gazebo_worlds
 $ sudo cp -a ./gazebo_models/. ~/.gazebo/models
 ```
 
-Copy the worlds to the Gazebo worlds directory. By default it is found in ```/usr/share/gazebo-7/worlds```
-You must replace ```gazebo-7``` with the version you use
+### 2.2 Gazebo worlds
 
+
+Go to ```roboticarts_gazebo_worlds``` folder and copy the worlds into Gazebo worlds directory. By default it is found in ```/usr/share/gazebo-9/worlds```
+You must replace ```gazebo-9``` with the version you use:
+
+**Gazebo 7.0** 
 ```
-$ cd ~/catkin_ws/src/roboticarts_gazebo_worlds
+$ cd roboticarts_gazebo_worlds
 $ cp -a ./gazebo_worlds/. /usr/share/gazebo-7/worlds/
 ```
-
-This step is optional. The ```utils``` folder contains the package ```rai_start_world```. Compile it to visualize the worlds in gazebo
-
+**Gazebo 9.0**
 ```
-$ cd ~/catkin_ws
-$ source devel/setup.bash
-$ catkin_make --only-pkg-with-deps rai_start_world
+$ cd roboticarts_gazebo_worlds
+$ cp -a ./gazebo_worlds/. /usr/share/gazebo-9/worlds/
 ```
 
-
-### 3. Launch the world!
+## 3. Launch the world!
 
 If you installed start_world package, you can test the worlds. 
 
 ```
-$ roslaunch rai_start_world world.launch world_name:=worlds/atom2_house.world
+$ roslaunch gazebo_ros empty_world.launch world_name:=worlds/atom2_house.world
 ```
 
 <img src="utils/images/atom2_house_overview.jpg" width="60%">
@@ -59,19 +60,21 @@ $ roslaunch rai_start_world world.launch world_name:=worlds/atom2_house.world
 
 To select another world, use the ```world_name``` parameter. Remember to add the ```worlds/``` prefix. For example:
 ```
-$ world_name:=worlds/empty_house.world
+$ world_name:=worlds/mini_atom_zone.world
 ```
 
 List of current available worlds:
 
 ```
 - atom2_house
+- mini_atom_zone
 ```
 
-### 4. Some notes
+## 4. Additional notes
 
-No need to copy worlds to Gazebo worlds directory. You can choose another directory. Make sure that the ```world_name``` parameter gets the full path to where the world is located.
+1. No need to copy the worlds into Gazebo worlds directory. You can choose another directory. Make sure that the ```world_name``` parameter gets the full path to where the world is located.
 
+2. On some graphics cards the orthogonal view in Gazebo causes a Segmentation Fault error when loading a world from gazebo_ros. For this reason, the worlds of this package have been set in perspective view to avoid this problem. 
 
 
 
